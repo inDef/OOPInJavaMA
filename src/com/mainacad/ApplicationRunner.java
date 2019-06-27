@@ -1,48 +1,40 @@
 package com.mainacad;
 
-import com.mainacad.shape.Circle;
-import com.mainacad.shape.Quadrilateral;
-import com.mainacad.shape.Square;
-import com.mainacad.shape.Triangle;
+import com.mainacad.shapes.Circle;
+import com.mainacad.shapes.Quadrilateral;
+import com.mainacad.shapes.Shape;
+import com.mainacad.shapes.Square;
+import com.mainacad.shapes.Triangle;
 
 public class ApplicationRunner {
 
-//    // Primitives
-
-//    // Numbers
-//    byte myByte; // от -128 до 127
-//    short myShort; // от -32768 до 32767
-//    int myInt; // от -2147483648 до 2147483647
-//    long myLong; // от -9223372036854775808 до 9223372036854775807
-
-//    // Decimals
-//    float myFloat; // ~ от -3.4·1038 до 3.4·1038
-//    double myDouble; // ~ от  -1.8·10308 до 1.8·10308
-
-//    // Symbols ASCII
-//    char myChar;
-
-//    // Boolean
-//    boolean myBoolean;
-
-
   public static void main(String[] args) {
+    Circle circle = new Circle(10);
+    Triangle triangle = new Triangle(100, 2);
+    Quadrilateral quadrilateral = new Quadrilateral(10, 10);
+    Square square = new Square(10);
 
-    Circle circle1 = new Circle();
-    circle1.setRadius(17.34);
-    System.out.println("Circle radius is: " + circle1.getRadius());
+    Shape shapeWithMaxArea;
 
-    Quadrilateral quadrilateral = new Quadrilateral(12, 18);
-    quadrilateral.setSide(12);
-    quadrilateral.setBase(14);
+    if (circle.getArea() > triangle.getArea()) {
+      shapeWithMaxArea = circle;
+    } else {
+      shapeWithMaxArea = triangle;
+    }
 
-    Square square = new Square(17);
-    square.setSide(12);
+    if (quadrilateral.getArea() > shapeWithMaxArea.getArea()) {
+      shapeWithMaxArea = quadrilateral;
+    }
 
-    Triangle triangle = new Triangle(18, 19);
-    triangle.setBase(12);
-    triangle.setHeight(15);
+    if (square.getArea() > shapeWithMaxArea.getArea()) {
+      shapeWithMaxArea = square;
+    }
 
-    Triangle triangle1 = new Triangle(12, 18);
+    System.out.println("Area of the largest shape is: " + shapeWithMaxArea.getArea());
+
+    System.out.println("Circle area: " + circle.getArea());
+    System.out.println("Triangle area: " + triangle.getArea());
+    System.out.println("Quadrilateral area: " + quadrilateral.getArea());
+    System.out.println("Square area: " + square.getArea());
   }
 }

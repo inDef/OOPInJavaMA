@@ -1,4 +1,4 @@
-package com.mainacad.shape;
+package com.mainacad.shapes;
 
 public interface Shape {
     double getArea();
